@@ -3,7 +3,9 @@
   "description": "HTTP package for Extas",
   "require": {
     "slim/psr7": "^1.1",
-    "jeyroik/extas-foundation": "5.*"
+    "jeyroik/extas-foundation": "5.*",
+    "jeyroik/extas-expands": "2.*",
+    "jeyroik/extas-protocols": "2.*"
   },
   "require-dev": {
     "phpunit/phpunit": "^9",
