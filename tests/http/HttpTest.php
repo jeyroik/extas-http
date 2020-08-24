@@ -58,9 +58,10 @@ class HttpTest extends TestCase
         $item->setPsrResponse($this->getPsrResponse());
 
         $io = $item->getHttpIO(['test' => 'is ok']);
-        $this->assertCount(3, $io);
+        $this->assertCount(4, $io);
         $this->assertArrayHasKey(IHasHttpIO::FIELD__PSR_REQUEST, $io);
         $this->assertArrayHasKey(IHasHttpIO::FIELD__PSR_RESPONSE, $io);
+        $this->assertArrayHasKey(IHasHttpIO::FIELD__ARGUMENTS, $io);
         $this->assertEquals(['test is ok'], $item->getArguments());
         $item->applyProtocols();
     }

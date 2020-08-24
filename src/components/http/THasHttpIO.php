@@ -23,6 +23,7 @@ trait THasHttpIO
     {
         $args[IHasPsrRequest::FIELD__PSR_REQUEST] = $this->getPsrRequest();
         $args[IHasPsrResponse::FIELD__PSR_RESPONSE] = $this->getPsrResponse();
+        $args[IHasPsrRequest::FIELD__ARGUMENTS] = $this->getArguments();
 
         return $args;
     }
