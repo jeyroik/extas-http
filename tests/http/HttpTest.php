@@ -1,6 +1,8 @@
 <?php
 namespace tests\http;
 
+use extas\components\protocols\Protocol;
+use extas\components\repositories\TSnuffRepositoryDynamic;
 use extas\interfaces\http\IHasHttpIO;
 
 use extas\components\extensions\ExtensionRepository;
@@ -23,17 +25,15 @@ use PHPUnit\Framework\TestCase;
 class HttpTest extends TestCase
 {
     use TSnuffHttp;
-    use TSnuffRepository;
+    use TSnuffRepositoryDynamic;
 
     protected function setUp(): void
     {
         parent::setUp();
         $env = Dotenv::create(getcwd() . '/tests/');
         $env->load();
-        $this->registerSnuffRepos([
-            'protocolRepository' => ProtocolRepository::class,
-            'extensionRepository' => ExtensionRepository::class,
-            'pluginRepository' => PluginRepository::class
+        $this->createSnuffDynamicRepositories([
+            ['protocols', 'name', Protocol::class]
         ]);
     }
 
