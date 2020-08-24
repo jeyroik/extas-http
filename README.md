@@ -10,3 +10,24 @@
 # Описание
 
 HTTP package for Extas.
+
+# Использование
+
+```php
+use extas\components\Item;
+use extas\interfaces\http\IHasPsrRequest; 
+/**
+ * @var \Psr\Http\Message\RequestInterface $request
+ */
+$item = new class ([
+        IHasHttpRequest::FIELD__PSR_REQUEST => $request
+    ]) extends Item {
+    use \extas\components\http\THasPsrRequest;
+    
+    protected function getSubjectForExtension() : string{
+        return '';
+    }
+};
+
+$item->getPsrRequest();
+```
